@@ -31,6 +31,15 @@ body {
     hsl(55deg 100% 50%) 100%
   );
 }
+.slider{
+
+  white-space:nowrap;
+  overflow-x:scroll;
+
+  scrollbar-width:none;
+
+  scroll-behavior : smooth;
+}
 
 .glass{
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));

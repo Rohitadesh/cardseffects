@@ -1,33 +1,59 @@
-import { useState } from "react"
-import baseball from '../../public/baseball.png'
-import batname from '../../public/batname.png'
-import basketball from '../../public/basketball.png'
-import football from '../../public/football.png'
-import redball from '../../public/redball.png'
-import tball from '../../public/tball.png'
-import volleyball from '../../public/volleyball.png'
-import whiteball from '../../public/whiteball.png'
+import { useState ,useRef} from "react"
+import image1 from '../../public/image1.webp'
+import image2 from '../../public/image2.webp'
+import image3 from '../../public/image3.webp'
+import image4 from '../../public/image4.webp'
 import Image from "next/image"
+import { FaAngleLeft } from "react-icons/fa6";
+import { FaAngleRight } from "react-icons/fa6";
 const Userlist= () =>{
-   const sportsBall = [whiteball,baseball,redball,tball,volleyball,football,batname,basketball]
-    const price=["350","250","400","500","150","300","920","1500"]
-    return(
-        <div className="h-screen w-screen flex flex-col justify-center items-center ">
-            <div className="h-[98%] w-[60%] shadow-inner rounded-md flex flex-col justify-center items-center flex-wrap gap-3 
-            sm:max-lg:flex-wrap sm:max-lg:w-[80%]">
-                {sportsBall.map((e,index)=>{
-                    return(
-                        <div key={index} className="h-[47%] glass border border-green-500 w-[20%] rounded-md shadow-md flex flex-col items-center justify-center gap-8
-                        sm:max-lg:w-[25%] sm:max-lg:">
-                            <Image src={e}  className="w-[40%] h-[25%]"/>
-                            <h1 className="text-xl text-white text-center flex gap-2 sm:max-lg:text-md">Price: {price[index]} Rs</h1>
-                        </div>
-                        
-                    )
-                })
-                }
+    // const [id ,setId]= useState(1)
+    const containerRef= useRef()
+    const data =[image1,image2,image3,image4]
 
+    function next(){
+        containerRef.current.scrollLeft += 790;
+    }
+    function prev(){
+        containerRef.current.scrollLeft -= 790;
+    }
+
+    // console.log(data.length,id)
+
+
+    return(
+        <div className="h-screen w-screen flex flex-row justify-center items-center ">
+            <div className="h-[80%] w-[60%] border border-black flex  justify-center items-center glass ">
+                
+                <button  className="text-6xl   glass" onClick={(e)=>prev(e)}><FaAngleLeft /></button>
+                <div className="flex gap-8   overflow-hidden " ref={containerRef}>
+
+                    {
+
+                        data.map((e,i)=>{
+
+                            return(
+                           
+
+                            <Image src={e} alt="asdsa" className="h-[500px] w-[1000px]"  />
+
+                            )
+                        })
+                    }
+                </div>
+                 <button  className="text-6xl  glass" onClick={(e)=>next(e)}><FaAngleRight /></button> 
             </div>
+                 
+          
+                  
+                
+                 
+
+    
+
+                 
+                
+
         </div>
     )
 }
