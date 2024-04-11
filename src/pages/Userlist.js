@@ -25,7 +25,7 @@ const Userlist= () =>{
         <div className="h-screen w-screen flex flex-row justify-center items-center ">
             <div className="h-[80%] w-[60%] border border-black flex  justify-center items-center glass ">
                 
-                <button  className="text-6xl   glass" onClick={(e)=>prev(e)}><FaAngleLeft /></button>
+                <button  className="text-6xl   glass" onClick={(e)=>next(e)}><FaAngleLeft /></button>
                 <div className="flex gap-8 overflow-hidden scroll-smooth" ref={containerRef}>
 
                     {
@@ -41,7 +41,7 @@ const Userlist= () =>{
                         })
                     }
                 </div>
-                 <button  className="text-6xl  glass" onClick={(e)=>next(e)}><FaAngleRight /></button> 
+                 <button  className="text-6xl  glass" onClick={(e)=>prev(e)}><FaAngleRight /></button> 
             </div>
                  
           
