@@ -26,7 +26,7 @@ const Userlist= () =>{
             <div className="h-[80%] w-[60%] border border-black flex  justify-center items-center glass ">
                 
                 <button  className="text-6xl   glass" onClick={(e)=>prev(e)}><FaAngleLeft /></button>
-                <div className="flex gap-8   overflow-hidden " ref={containerRef}>
+                <div className="flex gap-8 overflow-hidden scroll-smooth" ref={containerRef}>
 
                     {
 
